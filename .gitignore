@@ -1,5 +1,7 @@
 config.js
-
+config.json
+.vscode
+.vscode/
 # Logs
 logs
 *.log

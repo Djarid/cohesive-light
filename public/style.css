@@ -1,0 +1,33 @@
+
+body {
+    background-color: #404040;
+    color: #c0c0c0;
+}
+
+.titleBlock {
+    font-size: 3em;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+li.member {
+    float: none;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+}
+
+li.member > span {
+    float: left;
+}
+
+.member_name {
+    width: 150px;
+}
+
+.member_rank {
+    width: 150px;
+}
+
+.member_joined {
+    width: 150px;
+}
