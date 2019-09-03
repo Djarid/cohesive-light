@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cohesive Light</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/global.css">
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-firestore.js"></script>
+</head>
+<body>
+    <div class="title_block">
+        <span class="title_block">Cohesive</span>
+        <span class="title_block"><img src="resources/chl_logo_100.png"></img></span>
+        <span class="title_block">Light</span>
+    </div>
+    <div class="nav_block">
+        <span class="nav_block selected">Home</span>
+        <span class="nav_block">Events</span>
+        <span class="nav_block">Builds</span>
+    </div>
+
+    <div class="content">
+        <div class=blurb>
+            <h3>Welcome to the the Cohesive light webpage.</h3>
+            <p>We are a Division 2 gaming clan that speed runs the Dark Hours raid</p>
+        </div>
+
+        <div class="event-calendar">
+            <h3>Event Calendar</h3>
+            <ul id='event-list' class="event-container">
+            </ul>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBZX1lg42Lor-aaSG_Qv2qO28ky4lQ4FbI",
+            authDomain: "cohesive-light.firebaseapp.com",
+            databaseURL: "https://cohesive-light.firebaseio.com",
+            projectId: "cohesive-light",
+            storageBucket: "cohesive-light.appspot.com",
+            messagingSenderId: "318361709434",
+            appId: "1:318361709434:web:80e7069dc3ae86d1",
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
+

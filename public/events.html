@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cohesive Light</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/events.css">
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-firestore.js"></script>
+</head>
+<body>
+        <div class="title_block">
+            <span class="title_block">Cohesive</span>
+            <span class="title_block"><img src="resources/chl_logo_100.png"></img></span>
+            <span class="title_block">Light</span>
+        </div>
+
+        <div class="nav_block">
+            <span class="nav_block">Home</span>
+            <span class="nav_block selected">Events</span>
+            <span class="nav_block">Builds</span>
+        </div>
+
+        <div class="content">
+            <div class=blurb>
+            <h3>Event Listing.</h3>
+            <div class="contentContainer">
+                <div class="flex-left">
+                    <p>This page lists all clan events. These can also be found in the following discord channels:</p>
+                    <ul>
+                        <li>raid-schedule</li>
+                        <li>clan-events</li>
+                    </ul>
+                </div>
+                <div class="flex-right">
+                    <button id="createEvent">Create Event</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="newEvent" class="hidden">
+            <h3>Create Raid Event</h3>
+            <form id="eventForm">
+                <div class="contentContainer colx2">
+                    <span>
+                        <label for="name">Event name</label>
+                        <input type="text" name="event_name" id="event_name">
+                    </span>
+                    <span>
+                    <label for="event_type">Type</label>
+                    <select name="event_type" id="event_type">
+                        <option value="raid">Raid</option>
+                    </select>
+                    </span>
+                    <span>
+                        <label for="event_leader">Leader</label>
+                        <input type="text" name="event_leader" id="event_leader">
+                    </span>
+                    <span>
+                        <label for="event_level">Level</label>
+                        <select name="event_level" id="event_level">
+                            <option value="speed">Speed Raider</option>
+                            <option value="raider">Raider</option>
+                            <option value="prospect">prospect</option>
+                            <option value="any">Any</option>
+                        </select>
+                    </span>
+                    <span>
+                        <label for="event_duration">Duration</label>
+                        <input type="text" name="event_duration" id="event_duration">
+                    </span>
+                    <span id="spanDescription">
+                        <label for="event_description">Description</label>
+                        <textarea name="event_description" id="event_description" cols="100" rows="9"></textarea>
+                    </span>
+                    <button id="add_event">Add</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="event-calendar">
+            <h3>Event Calendar</h3>
+            <ul id='event-list' class="event-container">
+            </ul>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBZX1lg42Lor-aaSG_Qv2qO28ky4lQ4FbI",
+            authDomain: "cohesive-light.firebaseapp.com",
+            databaseURL: "https://cohesive-light.firebaseio.com",
+            projectId: "cohesive-light",
+            storageBucket: "cohesive-light.appspot.com",
+            messagingSenderId: "318361709434",
+            appId: "1:318361709434:web:80e7069dc3ae86d1",
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/events.js"></script>
+</body>
+</html>
