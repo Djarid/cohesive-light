@@ -1,0 +1,65 @@
+#!/usr/bin/env node
+
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+const express = require('express');
+const engines = require('consolidate');
+
+const firebaseConfig = require('./config.json');
+firebaseConfig.credential = admin.credential.applicationDefault();
+
+const firebaseApp = admin.initializeApp();
+const firestore = firebaseApp.firestore();
+
+require('./utils.js');
+
+const app = express();
+app.engine('hbs', engines.handlebars);
+app.set('views', './views');
+app.set('view engine', 'hbs');
+
+app.get('*', (request, response) => {
+    response.send('Hello World!');
+});
+
+app.post('/', (req,res) => {
+    res.send("put");
+});
+
+// // function getMembers() {
+// //     var member = [];
+// //     firestore.collection('members')
+// //         .onSnapshot(function(querySnapshot) {
+// //             querySnapshot.forEach(function(doc) {
+// //                 member.push(parseTimestamp(doc.data()));
+// //             });
+// //         }).catch(function(error) {
+// //             console.log('getMembers error: ', error);
+// //             console.log('in snapshot: '+ member);
+// //         });
+// //     return member;
+// // }
+
+// app.get('/', (request, response) => {
+//     console.log('here');
+//     //response.render('index','hello');
+//     response.send("test1");
+//     //response.json({ "version": packageInfo.version });
+//     console.log('now here');
+// });
+
+app.get('/test', (request, response) => {
+    getRealtimeUpdates();
+});
+
+function getRealtimeUpdates() {
+    firestore.collection('members').onSnapshot(function(querySnapshot) {
+        var member = [];
+        querySnapshot.forEach(function(doc) {
+            member.push(parseTimestamp(doc.data()));
+        });
+        response.render('index', result);
+    });
+}
+
+exports.app = functions.https.onRequest(app);

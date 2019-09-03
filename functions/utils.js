@@ -1,5 +1,5 @@
 module.exports = {
-    parstTimestamp: function(data) {
+    parseTimestamp: function(data) {
         var options = {
             weekday: 'long',
             year: 'numeric',

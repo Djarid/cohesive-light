@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cohesive Light Members</title>
+</head>
+<body>
+    <div id="peopleTable"></div>
+    <div id="memberTable"></div>
+    <!-- The core Firebase JS SDK is always required and must be listed first - ->
+    <script src="/__/firebase/6.3.3/firebase-app.js"></script>
+    <script src="/__/firebase/6.3.3/firebase-auth.js"></script>
+    <script src="/__/firebase/6.3.4/firebase-firestore.js"></script>
+    <script src="/__/firebase/init.js"></script>
+    <! -- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#reserved-urls -->
+        <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script id="member_list_template" type="text/x-handlebars-template">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Armour</th>
+                    <th>Health</th>
+                    <th>Weapon</th>
+                    <th>Damage</th>
+                    <th>RoF</th>
+                    <th>In Rhythm</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each member}}
+                <tr>
+                    <td>{{Name}}</td>
+                    <td>{{Armour}}</td>
+                    <td>{{Health}}</td>
+                    <td>{{Weapon}}</td>
+                    <td>{{Damage}}</td>
+                    <td>{{ROF}}</td>
+                    <td><input type="checkbox" name="rhythm_{{name}}" id="rhythm_{{name}}"{{#if InRhythm}} checked{{/if}}></td>
+                </tr>
+                {{else}}
+                <tr><td>No data</td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
+
+    <script id="testTemplate" type="text/x-handlebars-template">
+        <ul class="people_list">
+        {{#each people}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ul>
+    </script>
+    <script src="./scripts/members.js"></script>
+</body>
+</html>

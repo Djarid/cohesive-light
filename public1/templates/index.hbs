@@ -1,0 +1,36 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Rank</th>
+            <th>Joined</th>
+            <th>Active</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each member}}
+        <tr>
+            <td>{{member.Name}}</td>
+            <td>{{rank}}</td>
+            <td>{{joined.dateString}}</td>
+            <td><input type="checkbox" name="active_{{name}}" id="active_{{name}}"{{#if active}} checked{{/if}}></td>
+            <td><button id="edit_{{name}}">Edit</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<!--
+<ul>
+    {{#each member}}
+    <li class="member">
+        <span class="member_name" id="name_{{name}}">{{name}}</span>
+        <span class="member_rank" id="rank_{{rank}}">{{rank}}</span>
+        <span class="member_joined" id="joined_{{joined._seconds}}">{{joined.dateString}}</span>
+        <span class="member_active" id="active_{{active}}">{{active}}</span>            
+    </li>
+    {{/each}}
+</ul>
+-->
